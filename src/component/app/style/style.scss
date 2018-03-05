@@ -18,6 +18,12 @@ body {
     overflow: hidden;
 }
 
+.container {
+    h1{
+        padding:20px;
+    }
+}
+
 #main-router {
     display: block;
     flex-grow: 1;

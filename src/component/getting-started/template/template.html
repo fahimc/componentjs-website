@@ -1,0 +1,84 @@
+<div data-component="getting-started" class="container">
+    <h1>Getting Started</h1>
+    <p>
+        We recommend you start by using the boilerplate. There is two ways to do this, either download the boilerplate from github or install the cli tool and execute the init method.
+        <br> If you wish to just use the componentjs framework you can download that from github. <a href="https://github.com/fahimc/Component">componentjs on github</a></p>
+    <h3>Download the boilerplate</h3>
+    <p>Goto the <a href="https://github.com/fahimc/component-boilerplate">boilerplate on github</a> and download the zip and unzip it into your project folder (unzip on the root) then run the install command.</p>
+    <pre><code class="">npm install</code></pre>
+    <h3>Install Componentjs using the cli tool</h3>
+    <p>You can use the cli tool to grab and install the componentjs boilerplate for you. You need to install the dev-cli tool globally first.</p>
+    <pre><code class="">npm install -g https://github.com/fahimc/dev-cli.git</code></pre>
+    <p>Goto you project folder (it can be a git repo) the run the following command to download and install the componentjs boilerplate</p>
+    <pre><code class="">dev-cli init componentjs</code></pre>
+    <h2>Running the Proejct</h2>
+    <p>to run the dev server you need to run the following command</p>
+    <pre><code class="">npm run dev</code></pre>
+    <h2>Create Component</h2>
+    <p>Components need to have a consistent folder structure and specific componentjs tags etc. There is a simple npm script to help you create components. Use the following command:</p>
+    <pre><code class="">
+      npm run create
+    </code></pre>
+    <p>You will be asked to provide your component name. this will be what is used to created the folder structure and this will be the component name. As an example we will create a component called 'main-carousel'.</p>
+    <pre><code class="">
+      npm run create
+      
+      What is the name of your component?  
+      main-carousel
+
+      src/component/main-carousel/src/component.js created
+      src/component/main-carousel/template/template.html created
+      src/component/main-carousel/style/style.scss created
+    </code></pre>
+    <p>As you can see a new component folder was created and the js, scss and the html file has been created for you.</p>
+    <p>Let's look at the template file</p>
+    <pre><code  class="language-markup">
+      &lt;div data-component="main-carousel"&gt;
+      &lt;/div&gt;
+     </code></pre>
+     <p>The Component template has been generate.</p>
+     <p>Let's look at the js file.</p>
+     <pre><code  class="language-js">
+      export default new Component({
+  		name: 'main-carousel',
+  		data: { },
+  		methods: {
+    	mounted(){ },
+    	unmounted(){ },
+    	updated(){ }
+  		}
+	});
+     </code></pre>
+     <p>The component instance has been setup for you and is bound to the 'main-carousel' element tag.</p>
+     <p>Every time you add  <pre><code class="language-markup">&lt;component-main-carousel&gt;&lt;/component-main-carousel&gt;</code></pre> to the html or to other components this will become an instance of main-carousel and the js code will bind to it.</p>
+    <p>	Component instnace has two object which you can, data and methods.<br><br>
+<strong>data{}</strong><br>This is where you can set variables and in the example above I have created a variable called 'message'. This will be added to you component and you can access it by calling this.message. This will also have one-way binding so when the value changes the updated() method gets called on your component.<br><br>
+<strong>methods{}</strong><br>This is where you can add methods for your component. There are methods which are used by this framework such as <strong>mounted()</strong>, <strong>unmounted()</strong> and <strong>updated()</strong>. You can execute a method by calling it like this this.getMessage()</p>
+
+    <h2>Development</h2>
+    <p>The folder strucuture of the components and in src are important and you should ensure you development in the same format so the gulp tasks understand where to look for files.</p>
+    <h2>Component templating</h2>
+    <p>In componentjs you have to specify a template element so you don't have to write the entire html for the component everytime you want to use it. This boilerplate has a html replacement task which will replace all <pre><code class="language-markup">&lt;component-[componentName]&gt;&lt;/component-[componentName]&gt;</code></pre> tags with this component template.</p>
+    Example
+    <pre><code  class="language-markup">
+&lt;component-app&gt;&lt;/component-app&gt;
+</code></pre> will be replace with the template found in src/component/app/template/template.html
+    <pre><code  class="language-markup">
+&lt;div data-component="app"&gt;
+	&lt;component-navigation&gt;&lt;/component-navigation&gt;
+	&lt;div data-router id="main-router"&gt;
+		&lt;section data-route="/"&gt;
+			&lt;component-home class="active"&gt;&lt;/component-home&gt;
+			&lt;component-footer&gt;&lt;/component-footer&gt;
+		&lt;/section&gt;
+		&lt;section data-route="/about"&gt;
+			&lt;component-about&gt;&lt;/component-about&gt;
+			&lt;component-footer&gt;&lt;/component-footer&gt;
+		&lt;/section&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    <p>This task can handle nested tags to as shown above. You can also add attributes which will get added to the element replacing the component tag.</p>
+    <h2>Lifecycle</h2>
+    <img src="assets/image/lifecycle.png">
+</div>

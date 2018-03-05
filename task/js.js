@@ -14,7 +14,6 @@ module.exports = function() {
         presets: ["es2015"]
       }))
       .bundle()
-      //.pipe(gulp.dest('dist/js/'));
       .pipe(source('app.js'))
       .pipe(gulp.dest('dist/js'));
   });

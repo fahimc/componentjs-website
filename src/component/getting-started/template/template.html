@@ -36,9 +36,9 @@
       &lt;div data-component="main-carousel"&gt;
       &lt;/div&gt;
      </code></pre>
-     <p>The Component template has been generate.</p>
-     <p>Let's look at the js file.</p>
-     <pre><code  class="language-js">
+    <p>The Component template has been generate.</p>
+    <p>Let's look at the js file.</p>
+    <pre><code  class="language-js">
       export default new Component({
   		name: 'main-carousel',
   		data: { },
@@ -49,12 +49,17 @@
   		}
 	});
      </code></pre>
-     <p>The component instance has been setup for you and is bound to the 'main-carousel' element tag.</p>
-     <p>Every time you add  <pre><code class="language-markup">&lt;component-main-carousel&gt;&lt;/component-main-carousel&gt;</code></pre> to the html or to other components this will become an instance of main-carousel and the js code will bind to it.</p>
-    <p>	Component instnace has two object which you can, data and methods.<br><br>
-<strong>data{}</strong><br>This is where you can set variables and in the example above I have created a variable called 'message'. This will be added to you component and you can access it by calling this.message. This will also have one-way binding so when the value changes the updated() method gets called on your component.<br><br>
-<strong>methods{}</strong><br>This is where you can add methods for your component. There are methods which are used by this framework such as <strong>mounted()</strong>, <strong>unmounted()</strong> and <strong>updated()</strong>. You can execute a method by calling it like this this.getMessage()</p>
-
+    <p>The component instance has been setup for you and is bound to the 'main-carousel' element tag.</p>
+    <p>Every time you add <pre><code class="language-markup">&lt;component-main-carousel&gt;&lt;/component-main-carousel&gt;</code></pre> to the html or to other components this will become an instance of main-carousel and the js code will bind to it.</p>
+    <p> Component instnace has two object which you can, data and methods.
+        <br>
+        <br>
+        <strong>data{}</strong>
+        <br>This is where you can set variables and in the example above I have created a variable called 'message'. This will be added to you component and you can access it by calling this.message. This will also have one-way binding so when the value changes the updated() method gets called on your component.
+        <br>
+        <br>
+        <strong>methods{}</strong>
+        <br>This is where you can add methods for your component. There are methods which are used by this framework such as <strong>mounted()</strong>, <strong>unmounted()</strong> and <strong>updated()</strong>. You can execute a method by calling it like this this.getMessage()</p>
     <h2>Development</h2>
     <p>The folder strucuture of the components and in src are important and you should ensure you development in the same format so the gulp tasks understand where to look for files.</p>
     <h2>Component templating</h2>
@@ -81,4 +86,7 @@
     <p>This task can handle nested tags to as shown above. You can also add attributes which will get added to the element replacing the component tag.</p>
     <h2>Lifecycle</h2>
     <img src="assets/image/lifecycle.png">
+    <h2>Build project</h2>
+    <p>To build your project, run the following command:</p>
+    <pre><code>npm run dist</code></pre>
 </div>

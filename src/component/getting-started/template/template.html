@@ -86,6 +86,30 @@
     <p>This task can handle nested tags to as shown above. You can also add attributes which will get added to the element replacing the component tag.</p>
     <h2>Lifecycle</h2>
     <img src="assets/image/lifecycle.png">
+    <h2>Binding data</h2>
+    <p>You can bind data to an element by using the <strong>data{}</strong> object and adding variable to it. You can then use the <strong>updated()</strong> method to update the element when the data variables are modified.</p>
+    <pre><code class="language-js">
+export default new Component({
+  name: &#x27;main-carousel&#x27;,
+  data: {
+    message: &#x27;I am a main-carousel component&#x27;
+  },
+  methods: {
+    getMessage() {
+      return this.message;
+    },
+    mounted(){
+        
+    },
+    updated(){
+      this.element.querySelector(&#x27;h1&#x27;).textContent = this.message;
+    }
+  }
+});
+    </code></pre>
+    <p>As you can see we are changing the textContent of a H1 tag withing the instance. You can access the element by calling <strong>this.element</strong>.</p>
+    <h2>Access the element </h2>
+    <p>Every instance of a component gets passed an element and you can access it by calling <strong>this.element</strong>.</p>
     <h2>Build project</h2>
     <p>To build your project, run the following command:</p>
     <pre><code>npm run dist</code></pre>
